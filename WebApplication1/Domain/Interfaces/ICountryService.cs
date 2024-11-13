@@ -8,9 +8,9 @@ namespace WebApplication1.Domain.Interfaces
         Task<IEnumerable<Country>> GetCountriesAsync(); // on esto se busca listar todos los paises
 
         Task<Country> CreateCountryAsync (Country country);
-        Task<Country> GetCountryById(Guid id);
+        Task<Country> GetCountryByIdAsync(Guid id);
         Task<Country> UpdateCountryAsync(Country country);
-        Task<Country> DeleteCountryById(Guid id);
+        Task<Country> DeleteCountryAsync(Guid id);
 
     }
 }

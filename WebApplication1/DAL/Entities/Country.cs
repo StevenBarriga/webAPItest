@@ -10,7 +10,7 @@ namespace WebApplication1.DAL.Entities
         public string Name { get; set; }
 
     }
-    public class City : AuditBase
+    public class Estate : AuditBase
     {
         [Display(Name = "Ciudad")]// para identificarlo mas facil
         [MaxLength(50, ErrorMessage = "El campo debe tener como mazimo 5o caracteres")]//maximo longitud

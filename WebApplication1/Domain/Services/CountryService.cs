@@ -78,7 +78,7 @@ namespace WebApplication1.Domain.Services
             try
             {
                 var country = await GetCountryByIdAsync(id);
-                if (country != null)
+                if (country == null)
                 {
                     return null;
                 }

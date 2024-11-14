@@ -15,12 +15,12 @@ namespace WebApplication1.DAL
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Country>().HasIndex(c => c.Name).IsUnique(); //aqui se creo el indice del campo name para la tabla countries 
-            modelBuilder.Entity<Estate>().HasIndex(c => c.Name).IsUnique(); //aqui se creo el indice del campo name para la tabla cities
+            modelBuilder.Entity<State>().HasIndex("Name", "CountryId").IsUnique(); //aqui se creo el indice del campo name para la tabla cities
         }
 
         #region DbSets 
         public DbSet<Country> Countries { get; set; }
-        public DbSet<Estate> Estates { get; set; }
+        public DbSet<State> States { get; set; }
  
         #endregion
     }

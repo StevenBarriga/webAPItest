@@ -2,7 +2,7 @@
 
 namespace WebApplication1.DAL.Entities
 {
-    public class Estate : AuditBase
+    public class State : AuditBase
     {
         [Display(Name = "Estado")]// para identificarlo mas facil
         [MaxLength(50, ErrorMessage = "El campo debe tener como mazimo 50 caracteres")]//maximo longitud

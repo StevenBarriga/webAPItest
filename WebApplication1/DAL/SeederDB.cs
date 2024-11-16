@@ -50,7 +50,13 @@ namespace WebApplication1.DAL
                         new State
                         {
                             CreateDate = DateTime.Now,
-                            Name = "Antioquia"
+                            Name = "Sucre"
+                        },
+
+                        new State
+                        {
+                            CreateDate = DateTime.Now,
+                            Name = "Atlantico"
                         }
                     }
                 });
@@ -73,7 +79,7 @@ namespace WebApplication1.DAL
             }
 
         }
-        
+
         #endregion
 
     }

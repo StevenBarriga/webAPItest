@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.Services.AddDbContext<DataBaseContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString
+builder.Services.AddDbContext<DataBaseContext>(o => o.UseSqlServer(builder.Configuration.GetConnectionString
     ("DefaultConnection")));
 
 //Contenedor de dependencias hecho el 13/11/2024
@@ -30,7 +30,7 @@ void SeederData()
 
     using (IServiceScope? scope = scopeFactory.CreateScope())
     {
-        SeederDB? service = scope.ServiceProvider.GetService<SeederDB?>();
+        SeederDB? service = scope.ServiceProvider.GetService<SeederDB?>(); //falta ?  en <SeenderDB?>
         service.SeederAsync().Wait();
     }
 }

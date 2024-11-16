@@ -24,7 +24,7 @@ namespace WebApplication1.DAL
 
             // a partir de aqui se van creando metodos que sirvern para prepoblar la base de datod
             await PopulateCountriesAsync();
-            await _context.SaveChangesAsync();  
+            await _context.SaveChangesAsync();  //esta linea me guarda los datos en base de datos
 
         }
 

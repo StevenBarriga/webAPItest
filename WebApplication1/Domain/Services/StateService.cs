@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using WebApplication1.DAL;
 using WebApplication1.DAL.Entities;
@@ -14,11 +15,12 @@ namespace WebApplication1.Domain.Services
             _context = context;
         }
 
-        public async Task<IEnumerable<State>> GetStatesAsync()
+        public async Task<IEnumerable<State>> GetStatesAsync() 
         {
             try
             {
                 var states = await _context.States.ToListAsync();
+                
                 return states;
             }
             catch (DbUpdateException dbUpdateException)
@@ -27,6 +29,23 @@ namespace WebApplication1.Domain.Services
             }
         }
 
+        // get para traer estados por pais
+        #region estados por pais 
+        public async Task<IEnumerable<State>> GetStatesByCountryIdAsync(Guid id)
+        {
+            try
+            {
+                var states = await _context.States.Where(s => s.CountryId == id).ToListAsync();
+                return states;
+            }
+            catch (DbUpdateException dbUpdateException)
+            {
+                throw new Exception(dbUpdateException.InnerException?.Message ?? dbUpdateException.Message);
+            }
+        }
+
+        #endregion estados por pais
+        
         public async Task<State> GetStateByIdAsync(Guid id)
         {
             try
@@ -39,7 +58,7 @@ namespace WebApplication1.Domain.Services
                 throw new Exception(dbUpdateException.InnerException?.Message ?? dbUpdateException.Message);
             }
         }
-
+        
         public async Task<State> CreateStateAsync(State state)
         {
             try
@@ -90,7 +109,7 @@ namespace WebApplication1.Domain.Services
             {
                 throw new Exception(dbUpdateException.InnerException?.Message ?? dbUpdateException.Message);
             }
-        } 
-        
+        }
+
     }
 }

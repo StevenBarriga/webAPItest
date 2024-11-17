@@ -29,6 +29,22 @@ namespace WebApplication1.Controllers
             return Ok(states);
         }
 
+        // get para traer estados por pais
+        #region get estados por pais
+        [HttpGet, ActionName("GetStatesByCountryId")]
+        [Route("GetByCountryId/{id}")] //URL api/states by country/get
+        public async Task<ActionResult<State>> GetStatesByCountryIdAsync(Guid id) // metodo nuevo estara bien ??
+        {
+            var states = await _stateService.GetStatesByCountryIdAsync(id);
+            if (states == null)
+            {
+                return NotFound(); //NotFound = Status Code 404 
+            }
+            return Ok(states); //Ok = Status Code 404 
+        }
+        #endregion estados por pais
+
+
         [HttpGet, ActionName("Get")]
         [Route("GetById/{id}")] //URL api/countries/get
         public async Task<ActionResult<State>> GetStateByIdAsync(Guid id)

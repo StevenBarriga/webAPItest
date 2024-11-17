@@ -18,7 +18,8 @@ namespace WebApplication1.Domain.Services
         {
             try
             {
-                var countries = await _context.Countries.ToListAsync();
+                var countries = await _context.Countries.Include(c => c.States).ToListAsync();
+                //var countries = await _context.Countries.ToListAsync();
                 return countries;
             }
             catch (DbUpdateException dbUpdateException)

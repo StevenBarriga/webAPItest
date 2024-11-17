@@ -11,8 +11,6 @@ namespace WebApplication1.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Cities");
 
             migrationBuilder.CreateTable(
                 name: "States",
@@ -52,26 +50,6 @@ namespace WebApplication1.Migrations
         {
             migrationBuilder.DropTable(
                 name: "States");
-
-            migrationBuilder.CreateTable(
-                name: "Cities",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Cities", x => x.Id);
-                });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Cities_Name",
-                table: "Cities",
-                column: "Name",
-                unique: true);
         }
     }
 }

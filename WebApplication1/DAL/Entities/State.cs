@@ -9,6 +9,8 @@ namespace WebApplication1.DAL.Entities
         [Required(ErrorMessage = "El campo {0} es obligstorio")]
         public string Name { get; set; }
 
+
+
         [Display(Name = "Pais")]
         //asi se relacionan 2 tablas
         public Country? Country { get; set; }

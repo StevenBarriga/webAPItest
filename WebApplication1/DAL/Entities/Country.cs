@@ -9,6 +9,8 @@ namespace WebApplication1.DAL.Entities
         [Required (ErrorMessage = "El campo {0} es obligstorio")]
         public string Name { get; set; }
 
+
+
         [Display(Name = "Estados")]
         public ICollection <State>? States { get; set; }
     }
